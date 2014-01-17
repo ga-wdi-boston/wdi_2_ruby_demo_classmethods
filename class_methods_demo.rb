@@ -17,7 +17,7 @@ class Ticket
     @date = date
   end
 
-end 
+end
 
 # Step 1.1
 # Create an instance of a ticket.
@@ -30,7 +30,7 @@ ticket1.price = 50.00
 # yep, 2 methods .
 # 1 instance methods and 1 class method
 
-# Ticket.new is a class method because it's the job 
+# Ticket.new is a class method because it's the job
 # of the Ticket to create new ticket instances
 
 # Step 1.2
@@ -41,15 +41,15 @@ ticket1.price = 50.00
 # Point is:
 # Every class in Ruby is instance of the class named Class
 
-# Step 2 
+# Step 2
 # Create a class method and use it.
 
-class Ticket 
+class Ticket
   # this is a class method. See the 'self'
   def self.most_expensive_tickets(*tickets)
     tickets.sort_by { |t| t.price }.last
   end
-end 
+end
 
 th = Ticket.new("Orpheum", "10/25/2012")
 cc = Ticket.new("Garden", "6/2/2013")
@@ -69,18 +69,18 @@ highest = Ticket.most_expensive(th, cc, fg)
 # Step 3
 # Show other ways of defining a class method.
 
-# Step 3.1 
+# Step 3.1
 # Using the name of the class to define a class method
 
-class Ticket 
+class Ticket
   def Ticket.most_expensive_tickets(*tickets)
     tickets.sort_by { |t| t.price }.last
   end
-end 
+end
 
-# Step 3.2 
+# Step 3.2
 # Using some ruby magic. It's only magic right now.
-class Ticket 
+class Ticket
 
   class << self
     # everything in here is defined on the class Ticket
@@ -88,12 +88,12 @@ class Ticket
       tickets.sort_by { |t| t.price }.last
     end
   end
-end 
+end
 
 # Why do this work?
 # it's complicated, at least for now.
 
-# Step 4 
+# Step 4
 # We can create an class that is ONLY has class methods.
 
 class Temperature
@@ -110,15 +110,10 @@ end
 # What are some build-in Ruby classes that don't have
 # instance methods?
 
-# Step 5 
+# Step 5
 # Class methods vs instance methods.
-# 
+#
 # 1) Instances created by classes are object.
 # 2) Classes are objects too.
 # 3) A class object (like Ticket) has it's methods, it own state
 # and it's own identity.
-
-
-
-
-
