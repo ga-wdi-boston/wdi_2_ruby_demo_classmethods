@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require_relative '../lib/song'
 
-describe Song do 
+describe Song do
 
   it "#new" do
     expect(Song.new("Let it be", 1.99, "http://beatles.com/let_it_be.mp3")).to be_an_instance_of Song
@@ -16,13 +16,29 @@ describe Song do
   let(:songs) do
     songs = []
     4.times do |i|
-     songs << Song.new("Song#{i}", 1.00 + (i*0.20), "http:://song.com/song#{1}.mp3")
+      songs << Song.new("Song#{i}", 1.00 + (i*0.20), "http:://song.com/song#{1}.mp3")
     end
     songs
   end
 
   it ".total_price" do
-    expect(Song.total_price(songs, "MA")).to eq 4.7632
+    expect(Song.total_price(songs, "MA")).to eq 4.76
+  end
+
+  describe "with a  discount" do
+
+    let(:songs) do
+      songs = []
+      6.times do |i|
+        songs << Song.new("Song#{i}", 1.00 + (i*0.20), "http:://song.com/song#{1}.mp3")
+      end
+      songs
+    end
+
+    it " .total_price" do
+      expect(Song.total_price(songs, "MA")).to eq 8.14
+    end
+
   end
 
 end

@@ -1,8 +1,10 @@
 require 'pry'
 require_relative './tax'
+require_relative './discount'
 
 class Song
   include Tax
+  extend Discount
 
   attr_accessor :price, :url
   attr_reader :name
@@ -18,9 +20,10 @@ class Song
   end
 
   def self.total_price(songs, state)
-    songs.inject(0) do|sum, song| 
+    total = songs.inject(0) do|sum, song|
       sum += song.price(state)
     end
+    total = (total - discount(songs.length)/100).round(2)
   end
 
   def to_s
