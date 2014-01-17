@@ -15,7 +15,6 @@ class Ticket
 
 end 
 
-
 # Step 1 
 # lets keep a running count of the all the tickets
 # Add this inside the class. Not inside any methods.
