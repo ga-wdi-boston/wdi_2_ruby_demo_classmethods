@@ -1,8 +1,8 @@
 require 'pry'
-require_relative './state_tax'
+require_relative './tax'
 
 class Song
-  include StateTax
+  include Tax
 
   attr_accessor :price, :url
   attr_reader :name
@@ -13,13 +13,13 @@ class Song
     @url = url
   end
 
-  def price
-    @price
+  def price(state)
+    @price - (@price * state_rate(state)/100) - (@price * Tax::FED_RATE/100)
   end
 
-  def self.total_price(songs)
+  def self.total_price(songs, state)
     songs.inject(0) do|sum, song| 
-      sum += song.price
+      sum += song.price(state)
     end
   end
 
