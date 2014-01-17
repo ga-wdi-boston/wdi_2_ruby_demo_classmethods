@@ -4,6 +4,8 @@ require 'pry'
 # Create a ticket.rb file!!
 # We've been using instance methods, mostly
 # object.message
+# The ticket should have a venue, price and date
+# The venue and date cannot be changed
 
 class Ticket
 
@@ -17,6 +19,9 @@ class Ticket
 
 end 
 
+# Step 1.1
+# Create an instance of a ticket.
+
 ticket1 = Ticket.new('Garden', '11-5-2013')
 ticket1.price = 50.00
 
@@ -28,8 +33,8 @@ ticket1.price = 50.00
 # Ticket.new is a class method because it's the job 
 # of the Ticket to create new ticket instances
 
-# Step 1.1
-# Look it up and find the Class.new class method
+# Step 1.2
+# Look up Class.new method
 # http://www.ruby-doc.org/core-2.1.0/Class.html
 
 # Gets very circular here
